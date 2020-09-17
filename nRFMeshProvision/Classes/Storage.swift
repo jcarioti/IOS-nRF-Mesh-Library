@@ -56,7 +56,7 @@ open class LocalStorage: Storage {
         self.path = fileName
     }
     
-    public func load() -> Data? {
+    open func load() -> Data? {
         // Load JSON form local file
         if let fileURL = getStorageFile() {
             if FileManager.default.fileExists(atPath: fileURL.path) {
@@ -70,7 +70,7 @@ open class LocalStorage: Storage {
         return nil
     }
     
-    public func save(_ data: Data) -> Bool {
+    open func save(_ data: Data) -> Bool {
         if let fileURL = getStorageFile() {
             do {
                 try data.write(to: fileURL)
